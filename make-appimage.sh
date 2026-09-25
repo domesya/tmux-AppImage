@@ -13,7 +13,9 @@ export DESKTOP=DUMMY
 export MAIN_BIN=tmux
 
 # Deploy dependencies
-quick-sharun /usr/bin/tmux
+quick-sharun \
+  /usr/bin/tmux \
+  /usr/lib/libncursesw.so* 
 
 # Additional changes can be done in between here
 
@@ -22,4 +24,4 @@ quick-sharun --make-appimage
 
 # Test the app for 12 seconds, if the test fails due to the app
 # having issues running in the CI use --simple-test instead
-quick-sharun --simple-test ./dist/*.AppImage
+quick-sharun --test ./dist/*.AppImage
