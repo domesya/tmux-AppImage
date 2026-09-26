@@ -15,8 +15,7 @@ export MAIN_BIN=tmux
 # Deploy dependencies
 quick-sharun \
   /usr/bin/tmux \
-  /usr/lib/libncursesw.so* \
-  /usr/lib/libsystemd.so*
+  /usr/lib/libncursesw.so* 
 
 # Additional changes can be done in between here
 
