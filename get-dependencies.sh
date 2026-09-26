@@ -16,5 +16,14 @@ get-debloated-pkgs --add-common --prefer-nano
 #make-aur-package PACKAGENAME
 
 # If the application needs to be manually built that has to be done down here
-wget -O ./PKGBUILD "https://gitea.artixlinux.org/packages/tmux/raw/branch/master/PKGBUILD"
-makepkg -si
+git clone "https://github.com/tmux/tmux" ./tmux
+cd ./tmux
+git rev-parse --short HEAD > ~/version
+sh ./autogen.sh
+./configure \
+		--prefix=/usr \
+		--enable-sixel \
+		--disable-systemd \
+		--enable-utempter
+make
+make install
